@@ -109,7 +109,7 @@ void loadExecutableDOS(struct exe *e, const char *path, int argc, char **argv, c
     size_t filesize = sbuf.st_size;
     char *p = strrchr(path, '.');
     if (p)
-        comfile = !strncmp(p, ".com", 5);
+        comfile = !strncmp(p, ".com", 5) || !strncmp(p, ".COM", 5);
 
     loadSegment = 0x1000;
     int loadOffset = loadSegment << 4;
